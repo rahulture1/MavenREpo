@@ -1,5 +1,3 @@
-
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -9,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Dropdown {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver","D:\\software\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver ();
 		driver.manage().window().maximize();
@@ -18,8 +16,9 @@ public class Dropdown {
 		System.out.println(driver.getTitle());
         Select select = new Select(driver.findElement(By.xpath(".//*[@id='searchLanguage']")));
         select.selectByValue("hi");
-        select.selectByIndex(20);
-        
+        select.selectByIndex(19);
+        Thread.sleep(3000);
+        driver.close();   
 	}
 
 }
